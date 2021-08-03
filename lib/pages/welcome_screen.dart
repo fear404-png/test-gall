@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:test_gall/pages/components/app_button_widget.dart';
 import 'package:test_gall/resources/app_svg.dart';
 import 'package:test_gall/theme/app_colors.dart';
+
+import 'components/app_button_negative_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -29,45 +32,19 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(AppColors.accent),
-                      minimumSize: MaterialStateProperty.all(
-                          const Size(double.infinity, 44)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                          side: BorderSide(color: AppColors.background)))),
-                  child: Text(
-                    "Create an account",
-                    style: TextStyle(
-                        fontFamily: "Roboto",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: AppColors.background),
-                  )),
+              const AppButtonNegative(
+                text: "Create an account",
+                width: double.infinity,
+                height: 44,
+              ),
               const SizedBox(
                 height: 10,
               ),
-              TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(AppColors.background),
-                      minimumSize: MaterialStateProperty.all(
-                          const Size(double.infinity, 44)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                          side: BorderSide(color: AppColors.accent)))),
-                  child: Text(
-                    "I already have an account",
-                    style: TextStyle(
-                        fontFamily: "Roboto",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: AppColors.accent),
-                  )),
+              const AppButtonDefault(
+                text: "I already have an account",
+                width: double.infinity,
+                height: 44,
+              ),
             ],
           ),
         ),
