@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_gall/pages/splash_screen.dart';
+import 'package:test_gall/pages/welcome_screen.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -9,9 +10,10 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: "test",
       routes: {
-        "splash_screen": (context) => const SplashScreen(),
+        "/splash_screen": (context) => const SplashScreen(),
+        "/welcome_screen": (context) => const WelcomeScreen(),
       },
-      initialRoute: "splash_screen",
+      initialRoute: "/welcome_screen",
     );
   }
 }
