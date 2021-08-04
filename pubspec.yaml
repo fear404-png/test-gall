@@ -32,6 +32,8 @@ dependencies:
   flutter_svg:
   flutter_bloc:
   bloc:
+  http_auth: ^1.0.0
+  lazy_load_scrollview:
 
 
   # The following adds the Cupertino Icons font to your application.

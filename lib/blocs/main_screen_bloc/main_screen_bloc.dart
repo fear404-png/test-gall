@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+
 import 'package:meta/meta.dart';
+
 import 'package:test_gall/pages/add_data_page.dart';
 import 'package:test_gall/pages/home_page.dart';
 import 'package:test_gall/pages/profile_page.dart';
@@ -26,6 +28,7 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
   ) async* {
     if (event is SetPage) {
       _index = event.indexPage;
+
       yield MainScreenInitial(_listItem[_index], _index);
     }
   }

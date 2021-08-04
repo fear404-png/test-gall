@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_gall/blocs/bloc/main_screen_bloc.dart';
+import 'package:test_gall/blocs/main_screen_bloc/main_screen_bloc.dart';
 
 import 'package:test_gall/theme/app_colors.dart';
 

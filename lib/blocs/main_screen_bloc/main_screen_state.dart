@@ -9,6 +9,6 @@ abstract class MainScreenState {
 }
 
 class MainScreenInitial extends MainScreenState {
-  const MainScreenInitial(Widget curretWidget, index)
+  MainScreenInitial(Widget curretWidget, int index)
       : super(curretWidget, index);
 }
