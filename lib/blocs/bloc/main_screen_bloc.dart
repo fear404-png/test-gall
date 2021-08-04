@@ -24,7 +24,6 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
   Stream<MainScreenState> mapEventToState(
     MainScreenEvent event,
   ) async* {
-    // TODO: implement mapEventToState
     if (event is SetPage) {
       _index = event.indexPage;
       yield MainScreenInitial(_listItem[_index], _index);

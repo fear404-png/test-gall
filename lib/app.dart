@@ -21,7 +21,7 @@ class App extends StatelessWidget {
         theme: ThemeData(
             appBarTheme:
                 const AppBarTheme(backgroundColor: AppColors.background),
-            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
                 backgroundColor: AppColors.background,
                 selectedItemColor: AppColors.headerLine,
                 unselectedItemColor: AppColors.grey)),

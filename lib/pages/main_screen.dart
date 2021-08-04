@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_gall/blocs/bloc/main_screen_bloc.dart';
-import 'package:test_gall/pages/add_data_page.dart';
-import 'package:test_gall/pages/home_page.dart';
-import 'package:test_gall/pages/profile_page.dart';
+
 import 'package:test_gall/theme/app_colors.dart';
 
 class MainScreen extends StatelessWidget {
