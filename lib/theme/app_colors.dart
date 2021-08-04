@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   static final Color background = Colors.white;
   static final Color accent = Colors.black;
-  static final Color error = Color(0xE80000);
-  static final Color mainGrey = Color(0x939393);
-  static final Color blue = Color(0x409EFF);
-  static final Color orange = Color(0xF7941D);
-  static final Color headerLine = Color(0xCF497E);
+  static final Color error = Colors.red;
+  static final Color mainGrey = Color.fromRGBO(147, 147, 147, 1);
+  static final Color blue = Colors.blue;
+  static final Color orange = Colors.orange;
+  static final Color headerLine = Color.fromRGBO(207, 73, 126, 1);
 }

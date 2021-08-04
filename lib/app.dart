@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_gall/pages/sign_in_screen.dart';
 import 'package:test_gall/pages/splash_screen.dart';
 import 'package:test_gall/pages/welcome_screen.dart';
 
@@ -12,6 +13,7 @@ class App extends StatelessWidget {
       routes: {
         "/splash_screen": (context) => const SplashScreen(),
         "/welcome_screen": (context) => const WelcomeScreen(),
+        "/sign_in_screen": (context) => const SignInScreen(),
       },
       initialRoute: "/welcome_screen",
     );
