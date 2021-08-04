@@ -37,21 +37,22 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              AppTextField(labelText: "Email", icon: Icon(Icons.mail_outline)),
+              AppTextField(
+                  labelText: "Email", icon: const Icon(Icons.mail_outline)),
               const SizedBox(
                 height: 30,
               ),
               AppTextField(
                   labelText: "Password",
-                  icon: Icon(Icons.visibility_outlined),
+                  icon: const Icon(Icons.visibility_outlined),
                   helpText: "Forgot login or password?"),
               const SizedBox(
                 height: 45,
               ),
-              AppButtonNegative(
+              const AppButtonNegative(
                 text: "Sign In",
                 fontSize: 17,
-                route: "",
+                route: "/main_screen",
                 width: 120,
                 height: 42,
               ),

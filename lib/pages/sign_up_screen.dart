@@ -38,7 +38,8 @@ class SignUpScreen extends StatelessWidget {
                 height: 50,
               ),
               AppTextField(
-                  labelText: "User Name", icon: Icon(Icons.person_outline)),
+                  labelText: "User Name",
+                  icon: const Icon(Icons.person_outline)),
               const SizedBox(
                 height: 30,
               ),
@@ -49,20 +50,21 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              AppTextField(labelText: "Email", icon: Icon(Icons.mail_outline)),
+              AppTextField(
+                  labelText: "Email", icon: const Icon(Icons.mail_outline)),
               const SizedBox(
                 height: 30,
               ),
               AppTextField(
                 labelText: "Password",
-                icon: Icon(Icons.visibility_outlined),
+                icon: const Icon(Icons.visibility_outlined),
               ),
               const SizedBox(
                 height: 30,
               ),
               AppTextField(
                 labelText: "Confirm password",
-                icon: Icon(Icons.visibility_outlined),
+                icon: const Icon(Icons.visibility_outlined),
               ),
               const SizedBox(
                 height: 45,
@@ -70,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
               const AppButtonNegative(
                 text: "Sign Up",
                 fontSize: 17,
-                route: "",
+                route: "/main_screen",
                 width: 120,
                 height: 42,
               ),

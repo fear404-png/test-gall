@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static final Color background = Colors.white;
-  static final Color accent = Colors.black;
-  static final Color error = Colors.red;
-  static final Color mainGrey = Color.fromRGBO(147, 147, 147, 1);
-  static final Color blue = Colors.blue;
-  static final Color orange = Colors.orange;
-  static final Color headerLine = Color.fromRGBO(207, 73, 126, 1);
+  static const Color background = Colors.white;
+  static const Color accent = Colors.black;
+  static const Color error = Colors.red;
+  static const Color mainGrey = Color.fromRGBO(147, 147, 147, 1);
+  static const Color grey = Color.fromRGBO(147, 147, 147, 0.12);
+  static const Color blue = Colors.blue;
+  static const Color orange = Colors.orange;
+  static const Color headerLine = Color.fromRGBO(207, 73, 126, 1);
 }
