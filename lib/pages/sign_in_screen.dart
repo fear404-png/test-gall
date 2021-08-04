@@ -12,16 +12,30 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-      ),
+          backgroundColor: AppColors.background,
+          shadowColor: AppColors.grey,
+          elevation: 1,
+          title: TextButton(
+            onPressed: () =>
+                Navigator.of(context).pushReplacementNamed("/welcome_screen"),
+            child: const Text(
+              "Cancel",
+              style: TextStyle(
+                fontFamily: "Roboto",
+                color: AppColors.accent,
+                fontSize: 15,
+              ),
+            ),
+          )),
       body: Padding(
         padding: AppPaddings.screenPadding,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Sign In",
                 style: TextStyle(
                     color: AppColors.accent,
@@ -32,19 +46,23 @@ class SignInScreen extends StatelessWidget {
               Container(
                 width: 95,
                 height: 2,
-                decoration: BoxDecoration(color: AppColors.error),
+                decoration: const BoxDecoration(color: AppColors.error),
               ),
               const SizedBox(
                 height: 50,
               ),
               AppTextField(
-                  labelText: "Email", icon: const Icon(Icons.mail_outline)),
+                labelText: "Email",
+                icon: const Icon(Icons.mail_outline),
+                isNecessarily: false,
+              ),
               const SizedBox(
                 height: 30,
               ),
               AppTextField(
                   labelText: "Password",
                   icon: const Icon(Icons.visibility_outlined),
+                  isNecessarily: false,
                   helpText: "Forgot login or password?"),
               const SizedBox(
                 height: 45,
@@ -59,7 +77,7 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              AppButtonDefault(
+              const AppButtonDefault(
                 text: "Sign Up",
                 fontSize: 17,
                 route: "/sign_up_screen",

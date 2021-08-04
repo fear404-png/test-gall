@@ -22,7 +22,7 @@ class AppButtonDefault extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => Navigator.of(context).pushNamed(route),
+        onPressed: () => Navigator.of(context).pushReplacementNamed(route),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(AppColors.background),
             minimumSize: MaterialStateProperty.all(Size(width!, height!)),
@@ -31,7 +31,7 @@ class AppButtonDefault extends StatelessWidget {
                 side: BorderSide(color: lineColor)))),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontFamily: "Roboto",
               fontWeight: FontWeight.bold,
               fontSize: 14,

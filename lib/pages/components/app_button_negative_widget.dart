@@ -20,7 +20,7 @@ class AppButtonNegative extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => Navigator.of(context).pushNamed(route),
+        onPressed: () => Navigator.of(context).pushReplacementNamed(route),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(AppColors.accent),
             minimumSize: (width != null && height != null)
@@ -28,10 +28,10 @@ class AppButtonNegative extends StatelessWidget {
                 : MaterialStateProperty.all(const Size(double.infinity, 36)),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
-                side: BorderSide(color: AppColors.background)))),
+                side:const BorderSide(color: AppColors.background)))),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontFamily: "Roboto",
               fontWeight: FontWeight.bold,
               fontSize: 14,
