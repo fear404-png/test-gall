@@ -4,11 +4,13 @@ import 'package:test_gall/theme/app_colors.dart';
 class AppTextField extends StatelessWidget {
   final String labelText;
   final Icon icon;
+  String? helpText = "";
 
-  const AppTextField({
+  AppTextField({
     Key? key,
     required this.labelText,
     required this.icon,
+    this.helpText,
   }) : super(key: key);
 
   @override
@@ -16,6 +18,7 @@ class AppTextField extends StatelessWidget {
     return TextField(
         decoration: InputDecoration(
       labelText: labelText,
+      counterText: helpText,
       suffixIcon: icon,
       contentPadding:
           const EdgeInsets.symmetric(vertical: 14.0, horizontal: 10),

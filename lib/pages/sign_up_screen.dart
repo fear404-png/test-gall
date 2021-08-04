@@ -6,8 +6,8 @@ import 'package:test_gall/until/app_paddings.dart';
 
 import 'components/app_textfield_widget.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SignInScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Sign In",
+                "Sign Up",
                 style: TextStyle(
                     color: AppColors.accent,
                     fontFamily: "Roboto",
@@ -37,19 +37,38 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
+              AppTextField(
+                  labelText: "User Name", icon: Icon(Icons.person_outline)),
+              const SizedBox(
+                height: 30,
+              ),
+              AppTextField(
+                labelText: "Birthday",
+                icon: Icon(Icons.calendar_today),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
               AppTextField(labelText: "Email", icon: Icon(Icons.mail_outline)),
               const SizedBox(
                 height: 30,
               ),
               AppTextField(
-                  labelText: "Password",
-                  icon: Icon(Icons.visibility_outlined),
-                  helpText: "Forgot login or password?"),
+                labelText: "Password",
+                icon: Icon(Icons.visibility_outlined),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              AppTextField(
+                labelText: "Confirm password",
+                icon: Icon(Icons.visibility_outlined),
+              ),
               const SizedBox(
                 height: 45,
               ),
-              AppButtonNegative(
-                text: "Sign In",
+              const AppButtonNegative(
+                text: "Sign Up",
                 fontSize: 17,
                 route: "",
                 width: 120,
@@ -59,9 +78,9 @@ class SignInScreen extends StatelessWidget {
                 height: 10,
               ),
               AppButtonDefault(
-                text: "Sign Up",
+                text: "Sign In",
                 fontSize: 17,
-                route: "/sign_up_screen",
+                route: "/sign_in_screen",
                 width: 120,
                 height: 42,
                 lineColor: AppColors.background,

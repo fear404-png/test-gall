@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 44,
                 fontSize: 14,
-                route: "/sign_in_screen",
+                route: "/sign_up_screen",
               ),
               const SizedBox(
                 height: 10,
