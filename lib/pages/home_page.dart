@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:test_gall/blocs/images_bloc/new_images_bloc/new_images_bloc.dart';
-import 'package:test_gall/blocs/images_bloc/polar_images_bloc/popular_images_bloc.dart';
+import 'package:test_gall/blocs/images_bloc/popular_images_bloc/popular_images_bloc.dart';
+
 
 import 'package:test_gall/blocs/main_screen_bloc/main_screen_bloc.dart';
 
 import 'package:test_gall/theme/app_colors.dart';
 import 'package:test_gall/until/app_paddings.dart';
 
-class HomeNewPage extends StatelessWidget {
-  const HomeNewPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

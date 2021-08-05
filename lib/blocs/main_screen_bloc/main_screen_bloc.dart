@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import 'package:test_gall/pages/add_data_page.dart';
-import 'package:test_gall/pages/home_new_page.dart';
+import 'package:test_gall/pages/home_page.dart';
 import 'package:test_gall/pages/profile_page.dart';
 
 part 'main_screen_event.dart';
@@ -14,7 +14,7 @@ part 'main_screen_state.dart';
 
 class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
   static final List<Widget> _listItem = [
-    const HomeNewPage(),
+    const HomePage(),
     const AddDataPage(),
     const ProfilePage()
   ];

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_gall/blocs/auth_bloc/auth_bloc.dart';
 
 import 'package:test_gall/blocs/images_bloc/new_images_bloc/new_images_bloc.dart';
-import 'package:test_gall/blocs/images_bloc/polar_images_bloc/popular_images_bloc.dart';
+
 import 'package:test_gall/pages/main_screen.dart';
 import 'package:test_gall/pages/sign_in_screen.dart';
 import 'package:test_gall/pages/sign_up_screen.dart';
@@ -10,6 +11,7 @@ import 'package:test_gall/pages/splash_screen.dart';
 import 'package:test_gall/pages/welcome_screen.dart';
 import 'package:test_gall/theme/app_colors.dart';
 
+import 'blocs/images_bloc/popular_images_bloc/popular_images_bloc.dart';
 import 'blocs/main_screen_bloc/main_screen_bloc.dart';
 
 class App extends StatelessWidget {
@@ -29,6 +31,9 @@ class App extends StatelessWidget {
         BlocProvider<PopularImagesBloc>(
           create: (BuildContext context) =>
               PopularImagesBloc()..add(ShowPopularImages()),
+        ),
+        BlocProvider<AuthBloc>(
+          create: (BuildContext context) => AuthBloc(),
         ),
       ],
       child: MaterialApp(

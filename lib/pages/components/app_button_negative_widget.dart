@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_gall/blocs/auth_bloc/auth_bloc.dart';
 import 'package:test_gall/theme/app_colors.dart';
 
 class AppButtonNegative extends StatelessWidget {
@@ -20,7 +22,13 @@ class AppButtonNegative extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => Navigator.of(context).pushReplacementNamed(route),
+        onPressed: () {
+          BlocProvider.of<AuthBloc>(context).add(SignUp(
+              email: "qtvyu@qweq.com",
+              userName: "ayeqeaxxxtry",
+              password: "qzerxrvtre"));
+          Navigator.of(context).pushReplacementNamed(route);
+        },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(AppColors.accent),
             minimumSize: (width != null && height != null)
@@ -28,7 +36,7 @@ class AppButtonNegative extends StatelessWidget {
                 : MaterialStateProperty.all(const Size(double.infinity, 36)),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
-                side:const BorderSide(color: AppColors.background)))),
+                side: const BorderSide(color: AppColors.background)))),
         child: Text(
           text,
           style: const TextStyle(

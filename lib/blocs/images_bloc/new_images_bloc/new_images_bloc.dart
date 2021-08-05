@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:http/http.dart';
 import 'package:http_auth/http_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:test_gall/blocs/images_bloc/model/image_model.dart';
@@ -28,15 +29,14 @@ class NewImagesBloc extends Bloc<NewImagesEvent, NewImagesState> {
     }
 
     if (event is AddNewImages) {
-      final _response = await BasicAuthClient('', '').get(Uri.parse(
+      final _response = await get(Uri.parse(
           "http://gallery.dev.webant.ru/api/photos?new=true&page=$_page&limit=10"));
       final _result = itemsNewImagesFromJson(_response.body);
 
       for (int i = 0; i <= 9; i++) {
         int _id = _result.data![i].image!.id;
         print(_id);
-        final _responseImage = await BasicAuthClient('', '')
-            .get(Uri.parse(
+        final _responseImage = await get(Uri.parse(
                 "http://gallery.dev.webant.ru/api/media_objects/${_id}"))
             .catchError(onError);
         final _resultImage = itemImageFromJson(_responseImage.body);

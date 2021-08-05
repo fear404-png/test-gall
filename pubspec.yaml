@@ -34,6 +34,7 @@ dependencies:
   bloc:
   http_auth: ^1.0.0
   lazy_load_scrollview:
+  http:
 
 
   # The following adds the Cupertino Icons font to your application.
