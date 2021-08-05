@@ -3,15 +3,34 @@ part of 'auth_bloc.dart';
 @immutable
 abstract class AuthEvent {}
 
-class SignUp extends AuthEvent {
-  final String userName;
-  String birthday;
-  final String email;
-  final String password;
+class SignUp extends AuthEvent {}
 
-  SignUp(
-      {required this.userName,
-      this.birthday = "2021-08-05T11:02:28.191Z",
-      required this.password,
-      required this.email});
+class ValidateInputUserName extends AuthEvent {
+  final String input;
+
+  ValidateInputUserName(this.input);
+}
+
+class ValidateInputBirthday extends AuthEvent {
+  final String input;
+
+  ValidateInputBirthday(this.input);
+}
+
+class ValidateInputPassword extends AuthEvent {
+  final String input;
+
+  ValidateInputPassword(this.input);
+}
+
+class ValidateInputConfirmPassword extends AuthEvent {
+  final String input;
+
+  ValidateInputConfirmPassword(this.input);
+}
+
+class ValidateInputEmail extends AuthEvent {
+  final String input;
+
+  ValidateInputEmail(this.input);
 }

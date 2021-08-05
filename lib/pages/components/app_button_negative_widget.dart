@@ -9,6 +9,7 @@ class AppButtonNegative extends StatelessWidget {
   final double? height;
   final double fontSize;
   final String route;
+  final AuthEvent? event;
 
   const AppButtonNegative({
     Key? key,
@@ -17,16 +18,17 @@ class AppButtonNegative extends StatelessWidget {
     this.height,
     required this.fontSize,
     required this.route,
+    this.event,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
-          BlocProvider.of<AuthBloc>(context).add(SignUp(
-              email: "qtvyu@qweq.com",
-              userName: "ayeqeaxxxtry",
-              password: "qzerxrvtre"));
+          if (event != null) {
+            BlocProvider.of<AuthBloc>(context).add(event!);
+          }
+
           Navigator.of(context).pushReplacementNamed(route);
         },
         style: ButtonStyle(

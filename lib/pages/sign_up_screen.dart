@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_gall/blocs/auth_bloc/auth_bloc.dart';
 import 'package:test_gall/pages/components/app_button_negative_widget.dart';
 import 'package:test_gall/pages/components/app_button_widget.dart';
 import 'package:test_gall/theme/app_colors.dart';
@@ -86,12 +87,13 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(
                 height: 45,
               ),
-              const AppButtonNegative(
+              AppButtonNegative(
                 text: "Sign Up",
                 fontSize: 17,
                 route: "/main_screen",
                 width: 120,
                 height: 42,
+                event: SignUp(),
               ),
               const SizedBox(
                 height: 10,

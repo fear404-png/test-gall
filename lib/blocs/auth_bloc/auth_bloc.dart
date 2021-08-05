@@ -11,31 +11,40 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  String _userName = "";
+  String _email = "";
+  String _birthday = "2021-08-05T11:02:28.191Z";
+  String _password = "";
+  String _confirmPassword = "";
   AuthBloc() : super(AuthInitial());
 
   @override
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
-    if (event is SignUp) {
-      print("goo");
+    if (event is ValidateInputUserName) {
+      _userName = event.input;
+    } else if (event is ValidateInputBirthday) {
+      _birthday = event.input;
+    } else if (event is ValidateInputPassword) {
+      _password = event.input;
+    } else if (event is ValidateInputConfirmPassword) {
+      _confirmPassword = event.input;
+    } else if (event is ValidateInputEmail) {
+      _email = event.input;
+    } else if (event is SignUp) {
       final _user = ItemsAuthUser(
-              email: event.email,
-              password: event.password,
-              username: event.userName,
-              birthday: event.birthday)
+              email: _email,
+              password: _password,
+              username: _userName,
+              birthday: _birthday)
           .toJson();
+      print(_user);
+
       final _response = await post(
           Uri.parse("http://gallery.dev.webant.ru/api/users"),
-          body: json.encode( _user)
-
-          // {
-          //     "email": event.email,
-          //     "password": event.password,
-          //     "username": event.userName
-          //   }
-
-          );
+          body: json.encode(_user),
+          headers: {"content-type": "application/json"});
       print(_response.body);
     }
   }
