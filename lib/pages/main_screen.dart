@@ -16,12 +16,13 @@ class MainScreen extends StatelessWidget {
     return BlocBuilder<MainScreenBloc, MainScreenState>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: AppColors.background,
           appBar: AppBar(
             backgroundColor: AppColors.background,
             shadowColor: AppColors.grey,
             elevation: 1,
           ),
-          body: state.curretWidget,
+          body:  state.curretWidget,
           bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),

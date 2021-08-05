@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_gall/blocs/images_bloc/image_bloc.dart';
+
+import 'package:test_gall/blocs/images_bloc/new_images_bloc/new_images_bloc.dart';
+import 'package:test_gall/blocs/images_bloc/polar_images_bloc/popular_images_bloc.dart';
 import 'package:test_gall/pages/main_screen.dart';
 import 'package:test_gall/pages/sign_in_screen.dart';
 import 'package:test_gall/pages/sign_up_screen.dart';
@@ -20,9 +22,14 @@ class App extends StatelessWidget {
         BlocProvider<MainScreenBloc>(
           create: (BuildContext context) => MainScreenBloc(),
         ),
-        BlocProvider<ImageBloc>(
-          create: (BuildContext context) => ImageBloc()..add(ShowNewImages()),
-        )
+        BlocProvider<NewImagesBloc>(
+          create: (BuildContext context) =>
+              NewImagesBloc()..add(ShowNewImages()),
+        ),
+        BlocProvider<PopularImagesBloc>(
+          create: (BuildContext context) =>
+              PopularImagesBloc()..add(ShowPopularImages()),
+        ),
       ],
       child: MaterialApp(
         title: "test",
