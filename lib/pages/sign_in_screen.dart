@@ -70,7 +70,7 @@ class SignInScreen extends StatelessWidget {
               const AppButtonNegative(
                 text: "Sign In",
                 fontSize: 17,
-                route: "/main_screen",
+                route: "/sign_up_screen",
                 width: 120,
                 height: 42,
               ),

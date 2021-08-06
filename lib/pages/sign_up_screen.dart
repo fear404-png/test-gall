@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_gall/blocs/auth_bloc/auth_bloc.dart';
 import 'package:test_gall/pages/components/app_button_negative_widget.dart';
 import 'package:test_gall/pages/components/app_button_widget.dart';
@@ -30,83 +31,107 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
           )),
-      body: Padding(
-        padding: AppPaddings.screenPadding,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Sign Up",
-                style: TextStyle(
-                    color: AppColors.accent,
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
-              ),
-              Container(
-                width: 105,
-                height: 2,
-                decoration: const BoxDecoration(color: AppColors.error),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              AppTextField(
-                  labelText: "User Name",
-                  icon: const Icon(Icons.person_outline),
-                  isNecessarily: true),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                  labelText: "Birthday",
-                  icon: const Icon(Icons.calendar_today),
-                  isNecessarily: false),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                  labelText: "Email",
-                  icon: const Icon(Icons.mail_outline),
-                  isNecessarily: true),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                  labelText: "Password",
-                  icon: const Icon(Icons.visibility_outlined),
-                  isNecessarily: true),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                  labelText: "Confirm password",
-                  icon: const Icon(Icons.visibility_outlined),
-                  isNecessarily: true),
-              const SizedBox(
-                height: 45,
-              ),
-              AppButtonNegative(
-                text: "Sign Up",
-                fontSize: 17,
-                route: "/main_screen",
-                width: 120,
-                height: 42,
-                event: SignUp(),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const AppButtonDefault(
-                text: "Sign In",
-                fontSize: 17,
-                route: "/sign_in_screen",
-                width: 120,
-                height: 42,
-                lineColor: AppColors.background,
-              ),
-            ],
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthError) {
+            Scaffold.of(context).showSnackBar(SnackBar(
+                duration: Duration(milliseconds: 2000),
+                backgroundColor: AppColors.background,
+                content: Text(
+                  state.error,
+                  style:
+                      TextStyle(fontFamily: "Roboto", color: AppColors.error),
+                )));
+          }
+          if (state is AuthSuccess) {
+            Scaffold.of(context).showSnackBar(const SnackBar(
+                duration: Duration(milliseconds: 2000),
+                backgroundColor: AppColors.background,
+                content: Text(
+                  "Регистрация прошла успешно! =)",
+                  style:
+                      TextStyle(fontFamily: "Roboto", color: AppColors.error),
+                )));
+          }
+        },
+        child: Padding(
+          padding: AppPaddings.screenPadding,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Sign Up",
+                  style: TextStyle(
+                      color: AppColors.accent,
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
+                ),
+                Container(
+                  width: 105,
+                  height: 2,
+                  decoration: const BoxDecoration(color: AppColors.error),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                AppTextField(
+                    labelText: "User Name",
+                    icon: const Icon(Icons.person_outline),
+                    isNecessarily: true),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                    labelText: "Birthday",
+                    icon: const Icon(Icons.calendar_today),
+                    isNecessarily: false),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                    labelText: "Email",
+                    icon: const Icon(Icons.mail_outline),
+                    isNecessarily: true),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                    labelText: "Password",
+                    icon: const Icon(Icons.visibility_outlined),
+                    isNecessarily: true),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                    labelText: "Confirm password",
+                    icon: const Icon(Icons.visibility_outlined),
+                    isNecessarily: true),
+                const SizedBox(
+                  height: 45,
+                ),
+                AppButtonNegative(
+                  text: "Sign Up",
+                  fontSize: 17,
+                  route: "/main_screen",
+                  width: 120,
+                  height: 42,
+                  event: SignUp(),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const AppButtonDefault(
+                  text: "Sign In",
+                  fontSize: 17,
+                  route: "/sign_in_screen",
+                  width: 120,
+                  height: 42,
+                  lineColor: AppColors.background,
+                ),
+              ],
+            ),
           ),
         ),
       ),

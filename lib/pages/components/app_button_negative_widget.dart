@@ -23,29 +23,37 @@ class AppButtonNegative extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-        onPressed: () {
-          if (event != null) {
-            BlocProvider.of<AuthBloc>(context).add(event!);
-          }
-
-          Navigator.of(context).pushReplacementNamed(route);
-        },
-        style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColors.accent),
-            minimumSize: (width != null && height != null)
-                ? MaterialStateProperty.all(Size(width!, height!))
-                : MaterialStateProperty.all(const Size(double.infinity, 36)),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-                side: const BorderSide(color: AppColors.background)))),
-        child: Text(
-          text,
-          style: const TextStyle(
-              fontFamily: "Roboto",
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-              color: AppColors.background),
-        ));
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is AuthSuccess) {              
+            Navigator.of(context).pushReplacementNamed(route);
+        } 
+      },
+      child: TextButton(
+            onPressed: () {
+              if (event is SignUp) {
+                BlocProvider.of<AuthBloc>(context).add(event!);
+                return;
+              }
+    
+              Navigator.of(context).pushReplacementNamed(route);
+            },
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.accent),
+                minimumSize: (width != null && height != null)
+                    ? MaterialStateProperty.all(Size(width!, height!))
+                    : MaterialStateProperty.all(const Size(double.infinity, 36)),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    side: const BorderSide(color: AppColors.background)))),
+            child: Text(
+              text,
+              style: const TextStyle(
+                  fontFamily: "Roboto",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  color: AppColors.background),
+            )),
+    );
   }
 }
